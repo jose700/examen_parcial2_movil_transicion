@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:examen_parcial2/widgets/genreCard.dart';
 import 'package:examen_parcial2/Constants.dart';
-
+/*En esta pantalla se visualizara un mensaje acerca de la materia y mis datos como estudiante, tambien se mostrara en una lista diferentes categorias de los libros*/
 class MyMainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

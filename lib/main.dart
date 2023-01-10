@@ -10,7 +10,7 @@ import 'dart:io';
 void main() {
   runApp(MyApp());
 }
-
+//exportamos las librerias a utilizar, lo primero que se mostrara es un splash screen con una animación(transición y con un titulo), despues de aquello nos redirige a la pantalla inicial MyMainPage
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override

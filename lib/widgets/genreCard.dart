@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:examen_parcial2/Constants.dart';
 import 'package:examen_parcial2/screens/bookCatalogue.dart';
 
+/*en esta pantalla se utilizo svg para los diferentes generos dentro de la lista(pequeña imagen para diferenciar cada genero), dentro
+de una card */ 
 class GenreCard extends StatefulWidget {
   const GenreCard({Key key, this.category}) : super(key: key);
   final String category;

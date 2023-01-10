@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//pantalla en la cual mostarar una imagen si el usuario no tiene acceso a internet
 class NoInternet extends StatefulWidget {
   const NoInternet({
     Key key,

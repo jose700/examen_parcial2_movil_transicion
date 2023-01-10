@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//se utilizo una card y clase con sus respectivos constructores de los datos a utilizar, 
+
 class BookCard extends StatelessWidget {
   final String title;
   final String author;

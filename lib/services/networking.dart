@@ -1,6 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+  //realizamos una clase y una función para verificar el estado de los datos si estan dando respuest o no
 class NetworkHelper {
   final String url;
   NetworkHelper(this.url);

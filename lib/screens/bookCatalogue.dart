@@ -25,23 +25,6 @@ class _BooksState extends State<Books> {
   String query = '';
   TextEditingController controller = TextEditingController();
 
-  void searchBooks() async {
-    var bookData =
-        await catalogService.getBooks(widget.category.toString().toLowerCase());
-    BooksModel booksFetched = BooksModel.fromJson(bookData);
-    setState(() {
-      results = booksFetched.results;
-    });
-  }
-
-  void searchQuery(String query) async {
-    var bookData = await catalogService.searchBooks(
-        widget.category.toString().toLowerCase(), query);
-    BooksModel booksFetched = BooksModel.fromJson(bookData);
-    setState(() {
-      if (results.isEmpty) results = booksFetched.results;
-    });
-  }
 
  BuildContext scaffoldContext;
 
@@ -72,66 +55,12 @@ class _BooksState extends State<Books> {
                     onTap: () =>  Navigator.of(context).push(MaterialPageRoute(
                         builder: (BuildContext context) => MyMainPage())),
                   ),
-                 
+                 //mostramos el titulo de la categoria seleccionada
            title: Text(
                     widget.category,
                     style: kHeadingTwo,
                   ),
                 ),
-                /*Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: TextField(
-                    textInputAction: TextInputAction.search,
-                    controller: controller,
-                    decoration: InputDecoration(
-                      hintText: 'Búsqueda rápida',
-                      hintStyle: const TextStyle(
-                        color: Color(0xFFA0A0A0),
-                      ),
-                      border: const OutlineInputBorder(borderSide: BorderSide.none),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide:
-                            BorderSide(color: Theme.of(context).accentColor),
-                      ),
-                      filled: true,
-                      fillColor: const Color(0xFFF0F0F6),
-                      focusColor: const Color(0xFFF0F0F6),
-                      prefixIcon: SvgPicture.asset(
-                        'assets/images/Search.svg',
-                        fit: BoxFit.none,
-                      ),
-                      suffixIcon: query.isNotEmpty
-                          ? InkWell(
-                              child: SvgPicture.asset(
-                                'assets/images/Cancel.svg',
-                                fit: BoxFit.none,
-                              ),
-                              onTap: () {
-                                controller.clear();
-                                searchBooks();
-                              },
-                            )
-                          : null,
-                    ),
-                    onChanged: (value) {
-                      setState(() {
-                        results.clear();
-                        setState(() {
-                          query = '';
-                        });
-                        query = value;
-                      });
-                      query.isEmpty ? searchBooks() : searchQuery(query);
-                    },
-                    onSubmitted: (value) {
-                      setState(() {
-                        results.clear();
-                        query = value;
-                      });
-                      query.isEmpty ? searchBooks() : searchQuery(query);
-                    },
-                  ),
-                ),*/
               ],
             ),
             
@@ -139,6 +68,7 @@ class _BooksState extends State<Books> {
           ),
         ),
         // ignore: unnecessary_new
+      //mostramos los datos de los libros de la categoria seleccionada en un gridView de 3 columnas 
         body: new Builder(builder: (BuildContext context) {
           scaffoldContext = context;
           return results.isNotEmpty
@@ -154,6 +84,7 @@ class _BooksState extends State<Books> {
                     mainAxisSpacing: 16.0,
                     crossAxisSpacing: 16.0,
                   ),
+            //dentro del grid realizamos un Inkell para que al momento de realizar un click en la imagen del libro este nos redirige a la pantalla del deatlle del libro con sus datos correspondiente
                   itemBuilder: (context, index) {
                     return InkWell(
                       child: BookCard(

@@ -1,3 +1,4 @@
+//clase BooksModel donde creamos variables de tipo numericas, string, nulas e inclusive una lista de rusultados de los libros
 class BooksModel {
   int count;
   String next;
@@ -5,7 +6,7 @@ class BooksModel {
   List<Results> results;
 
   BooksModel({this.count, this.next, this.previous, this.results});
-
+//obtenemos los datos del json y hacemos una condición para validar que los resultados no sean nulos
   BooksModel.fromJson(Map<String, dynamic> json) {
     count = json['count'];
     next = json['next'];
